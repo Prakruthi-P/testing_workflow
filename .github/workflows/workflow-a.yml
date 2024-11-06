@@ -9,3 +9,5 @@ jobs:
     steps:
       - name: Echo message
         run: echo "I am Workflow 1"
+      - name: Check for failure
+        run: exit 1
