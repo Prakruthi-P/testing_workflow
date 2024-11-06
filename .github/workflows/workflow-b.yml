@@ -1,0 +1,21 @@
+name: Workflow 2
+on:
+  workflow_run:
+    workflows: ["Workflow"]
+    types:
+      - completed
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Success message
+        run: echo "I am Workflow 2 - Success"
+
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - name: Failure message
+        run: echo "The triggering workflow failed"

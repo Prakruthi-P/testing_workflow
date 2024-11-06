@@ -1,0 +1,11 @@
+name: Workflow
+on:
+  push:
+    branches: [ workflow ]
+
+jobs:
+  workflow1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo message
+        run: echo "I am Workflow 1"
